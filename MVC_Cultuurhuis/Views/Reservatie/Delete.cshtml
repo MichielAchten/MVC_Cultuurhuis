@@ -1,0 +1,48 @@
+﻿@model MVC_Cultuurhuis.Models.Reservatie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Reservatie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plaatsen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plaatsen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Klant.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klant.Voornaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voorstelling.Titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voorstelling.Titel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

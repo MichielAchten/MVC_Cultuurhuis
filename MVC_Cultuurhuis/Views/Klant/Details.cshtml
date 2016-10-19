@@ -1,0 +1,82 @@
+﻿@model MVC_Cultuurhuis.Models.Klant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Klant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voornaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Familienaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Familienaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Straat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Straat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HuisNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuisNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gemeente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gemeente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GebruikersNaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GebruikersNaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paswoord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paswoord)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KlantNr }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

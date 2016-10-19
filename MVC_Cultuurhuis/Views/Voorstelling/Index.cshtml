@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVC_Cultuurhuis.Models.Voorstelling>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Uitvoerders)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VrijePlaatsen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre.Naam)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uitvoerders)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prijs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VrijePlaatsen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre.Naam)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VoorstellingsNr }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VoorstellingsNr }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VoorstellingsNr })
+        </td>
+    </tr>
+}
+
+</table>

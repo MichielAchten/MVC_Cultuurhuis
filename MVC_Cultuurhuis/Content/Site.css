@@ -1,0 +1,52 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Opmaak titel */
+.titelCultuurhuis{
+    font-size: 50px;
+}
+
+/* aangepaste opmaak zonder grijze achtergrond */
+.zonderGrijzeAchtergrond{
+    background:#ffffff;
+}
+
+/* opmaak van prijs en aantal */
+.table td:nth-child(4){
+    text-align:right;
+    padding-right: 1em;
+}
+.table td:nth-child(5){
+    text-align:right;
+    padding-right:3em;
+}
+.table th:nth-child(4){
+    text-align:right;
+    padding-right:1em;
+}
+.table th:nth-child(5){
+    text-align:right;
+    padding-right:3em;
+}

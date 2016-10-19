@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MVC_Cultuurhuis.Models.Klant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Voornaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Familienaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Straat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HuisNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gemeente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GebruikersNaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paswoord)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voornaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Familienaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Straat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HuisNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Postcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gemeente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GebruikersNaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paswoord)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KlantNr }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KlantNr }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KlantNr })
+        </td>
+    </tr>
+}
+
+</table>

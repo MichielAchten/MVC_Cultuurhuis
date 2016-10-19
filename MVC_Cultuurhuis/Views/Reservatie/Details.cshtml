@@ -1,0 +1,42 @@
+﻿@model MVC_Cultuurhuis.Models.Reservatie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservatie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plaatsen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plaatsen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Klant.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klant.Voornaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voorstelling.Titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voorstelling.Titel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReservatieNr }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

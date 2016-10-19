@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MVC_Cultuurhuis.Models.Reservatie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Plaatsen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Klant.Voornaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voorstelling.Titel)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plaatsen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Klant.Voornaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voorstelling.Titel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReservatieNr }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReservatieNr }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReservatieNr })
+        </td>
+    </tr>
+}
+
+</table>
