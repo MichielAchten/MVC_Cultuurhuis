@@ -43,5 +43,28 @@ namespace MVC_Cultuurhuis.Services
                 return db.Voorstellingen.Find(id);
             }
         }
+
+        public Klant GetKlant(string naam, string paswoord)
+        {
+            using (var db = new CultuurHuisMVCEntities())
+            {
+                return (from klant in db.Klanten
+                        where klant.GebruikersNaam == naam &&
+                        klant.Paswoord == paswoord
+                        select klant).FirstOrDefault();
+            }
+        }
+
+        //gebruikersnaam moet uniek zijn
+        public bool BestaatKlant(string gebruikersnaam)
+        {
+            using (var db = new CultuurHuisMVCEntities())
+            {
+                var bestaandeKlant = (from klant in db.Klanten
+                                    where klant.GebruikersNaam == gebruikersnaam
+                                    select klant).FirstOrDefault();
+                return bestaandeKlant != null;
+            }
+        }
     }
 }

@@ -4,6 +4,14 @@
 }
 <div class="jumbotron zonderGrijzeAchtergrond">
     <h1>Het Cultuurhuis <img src="~/Images/voorstellingen.png" alt="voorstellingen" /></h1>
+
+    <p>
+        @if (ViewBag.mandjeTonen)
+        {
+            <a href="@Url.Action("Mandje", "Home")" class="btn btn-primary btn-lg">Winkelmandje &raquo;</a>
+            <a href="@Url.Action("Bevestiging", "Home")" class="btn btn-primary btn-lg">Kassa &raquo;</a>
+        }
+    </p>
 </div>
 @if (Model.Genre == null)
 {

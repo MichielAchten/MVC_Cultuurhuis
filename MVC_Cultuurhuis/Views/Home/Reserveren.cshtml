@@ -46,8 +46,15 @@
     </div>
     <div class="form-group">
         <label class="col-md-2 control-label">Plaatsen</label>
+        @{
+            var aantal = 1;
+            if (Session[Model.VoorstellingsNr.ToString()] != null)
+            {
+                aantal = Convert.ToInt16(Session[Model.VoorstellingsNr.ToString()]);
+            }
+        }
         <div class="col-md-10">
-            <input value="1" required="required" min="1" type="number" max="@Model.VrijePlaatsen"
+            <input value="aantal" required="required" min="1" type="number" max="@Model.VrijePlaatsen"
                    name="aantalPlaatsen" class="form-control" />
         </div>
     </div>

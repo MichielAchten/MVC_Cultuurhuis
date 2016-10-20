@@ -1,0 +1,13 @@
+﻿@model MVC_Cultuurhuis.Models.NieuweKlantForm
+@{
+    ViewBag.Title = "Nieuw";
+}
+<div class="jumbotron zonderGrijzeAchtergrond">
+    <h1>Het Cultuurhuis <img src="~/Images/nieuweklant.png" alt="nieuwe klant" /></h1>
+    <p>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg">Tickets kiezen &raquo;</a>
+        <a href="@Url.Action("Mandje", "Home")" class="btn btn-primary btn-lg">Winkelmandje &raquo;</a>
+        <a href="@Url.Action("Bevestiging", "Home")" class="btn btn-primary btn-lg">Kassa &raquo;</a>
+    </p>
+</div>
+<p class="lead alert alert-info">Vul jouw gegevens in</p>
