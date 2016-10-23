@@ -36,9 +36,8 @@
             <input type="submit" name="zoek" value="Zoek me op" class="btn"
                    @if (ViewBag.klant != null) {<text>disabled</text>} />
 
-            <input type="submit" name="zoek" value="Zoek me op" class="btn"
-                   @if (ViewBag.klant != null) {<text>disabled</text>}/>
-            <input type="submit" name="nieuw" value="Ik ben nieuw" class="btn" />
+            <input type="submit" name="nieuw" value="Ik ben nieuw" class="btn"
+                   @if (ViewBag.klant != null) {<text>disabled</text>} />
         </div>
     </div>
     @if (ViewBag.klant != null)
@@ -51,7 +50,7 @@
     }
     <h2>Stap 2: Bevestigen</h2>
     <p>
-        <input type="submit" name="bevestig" value="Bevestigen" class="btn" disabled
+        <input type="submit" name="bevestig" value="Bevestigen" class="btn"
         @if (ViewBag.klant == null) { <text>disabled</text> } />
     </p>
 </form>

@@ -75,5 +75,16 @@ namespace MVC_Cultuurhuis.Services
                 db.SaveChanges();
             }
         }
+
+        public void BewaarReservatie(Reservatie gelukteReservatie)
+        {
+            using (var db = new CultuurHuisMVCEntities())
+            {
+                var voorstelling = db.Voorstellingen.Find(gelukteReservatie.VoorstellingsNr);
+                voorstelling.VrijePlaatsen -= gelukteReservatie.Plaatsen;
+                db.Reservaties.Add(gelukteReservatie);
+                db.SaveChanges();
+            }
+        }
     }
 }

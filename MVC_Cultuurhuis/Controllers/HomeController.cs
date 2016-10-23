@@ -200,5 +200,15 @@ namespace MVC_Cultuurhuis.Controllers
                 return View(form);
             }
         }
+
+        public ActionResult Overzicht()
+        {
+            List<MandjeItem> gelukteReservaties = (List<MandjeItem>)Session["gelukt"];
+            List<MandjeItem> mislukteReservaties = (List<MandjeItem>)Session["mislukt"];
+            ViewBag.gelukt = gelukteReservaties;
+            ViewBag.mislukt = mislukteReservaties;
+            Session.Clear();
+            return View();
+        }
     }
 }
