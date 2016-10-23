@@ -50,3 +50,16 @@ textarea {
     text-align:right;
     padding-right:3em;
 }
+
+
+/* Styles for validation helpers */
+
+.field-validation-error{
+    color: #ff0000;
+}
+.field-validation-valid{
+    display: none;
+}
+.input-validation-error{
+    border: 1px solid #ff0000; background-color: #ffeeee;
+}

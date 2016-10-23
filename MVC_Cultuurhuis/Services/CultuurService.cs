@@ -66,5 +66,14 @@ namespace MVC_Cultuurhuis.Services
                 return bestaandeKlant != null;
             }
         }
+
+        public void VoegKlantToe(Klant nieuweKlant)
+        {
+            using (var db = new CultuurHuisMVCEntities())
+            {
+                db.Klanten.Add(nieuweKlant);
+                db.SaveChanges();
+            }
+        }
     }
 }

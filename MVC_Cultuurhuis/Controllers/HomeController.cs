@@ -134,7 +134,37 @@ namespace MVC_Cultuurhuis.Controllers
             //bevestig
             if (Request["bevestig"] != null)
             {
+                //verwerking klantgegevens via Session["klant"]
+                var klant = (Klant)Session["klant"];
+                Session.Remove("klant");
+                List<MandjeItem> gelukteReservaties = new List<MandjeItem>();
+                List<MandjeItem> mislukteReservaties = new List<MandjeItem>();
 
+                //haal alle reservaties uit de session
+                foreach (string nummer in Session)
+                {
+                    Reservatie nieuweReservatie = new Reservatie();
+                    nieuweReservatie.VoorstellingsNr = int.Parse(nummer);
+                    nieuweReservatie.Plaatsen = Convert.ToInt16(Session[nummer]);
+                    nieuweReservatie.KlantNr = klant.KlantNr;
+                    Voorstelling voorstelling = db.GetVoorstelling(nieuweReservatie.VoorstellingsNr);
+                    if (voorstelling.VrijePlaatsen >= nieuweReservatie.Plaatsen)
+                    {
+                        //opslaan mislukt in database
+                        db.BewaarReservatie(nieuweReservatie);
+                        gelukteReservaties.Add(new MandjeItem(voorstelling.VoorstellingsNr, voorstelling.Titel, voorstelling.Uitvoerders,
+                            voorstelling.Datum, voorstelling.Prijs, nieuweReservatie.Plaatsen));
+                    }
+                    else
+                    {
+                        mislukteReservaties.Add(new MandjeItem(voorstelling.VoorstellingsNr, voorstelling.Titel, voorstelling.Uitvoerders,
+                            voorstelling.Datum, voorstelling.Prijs, nieuweReservatie.Plaatsen));
+                    }
+                }
+                Session.RemoveAll();
+                Session["gelukt"] = gelukteReservaties;
+                Session["mislukt"] = mislukteReservaties;
+                return RedirectToAction("Overzicht", "Home");
             }
             return View();
         }
@@ -144,6 +174,31 @@ namespace MVC_Cultuurhuis.Controllers
         {
             var nieuwForm = new NieuweKlantForm();
             return View(nieuwForm);
+        }
+
+        [HttpPost]
+        public ActionResult Nieuw(NieuweKlantForm form)
+        {
+            if (this.ModelState.IsValid)
+            {
+                Klant nieuweKlant = new Klant();
+                nieuweKlant.Voornaam = form.Voornaam;
+                nieuweKlant.Familienaam = form.Familienaam;
+                nieuweKlant.Straat = form.Straat;
+                nieuweKlant.HuisNr = form.Huisnr;
+                nieuweKlant.Postcode = form.Postcode;
+                nieuweKlant.Gemeente = form.Gemeente;
+                nieuweKlant.GebruikersNaam = form.Gebruikersnaam;
+                nieuweKlant.Paswoord = form.Paswoord;
+
+                Session["klant"] = nieuweKlant;
+                db.VoegKlantToe(nieuweKlant);
+                return RedirectToAction("Bevestiging", "Home");
+            }
+            else
+            {
+                return View(form);
+            }
         }
     }
 }

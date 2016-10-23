@@ -22,7 +22,7 @@ namespace MVC_Cultuurhuis.Models
         public string Gemeente { get; set; }
         [Required(ErrorMessage = "Gebruikersnaam is verplicht in te vullen !")]
         [ValidationAttributes.Bestaatnogniet(ErrorMessage="Een klant met deze gebruikersnaam komt al voor in de database. Kies een andere naam.")]
-        public string Gebruikersnaam { get { return this.Gebruikersnaam; } set { this.Gebruikersnaam = value;} }
+        public string Gebruikersnaam { get { return this.Gebruikersnaam; } set { this.Gebruikersnaam = value; } }
         [Required(ErrorMessage= "Wachtwoord is erplicht in te vullen !")]
         [DataType(DataType.Password)]
         [Display(Name="Wachtwoord")]
