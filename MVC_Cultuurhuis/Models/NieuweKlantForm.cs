@@ -8,6 +8,8 @@ namespace MVC_Cultuurhuis.Models
 {
     public class NieuweKlantForm
     {
+        private string gebruikersnaam;
+
         [Required(ErrorMessage = "Voornaam is verplicht in te vullen !")]
         public string Voornaam { get; set; }
         [Required(ErrorMessage="Familienaam is verpolicht in te vullen !")]
@@ -22,8 +24,8 @@ namespace MVC_Cultuurhuis.Models
         public string Gemeente { get; set; }
         [Required(ErrorMessage = "Gebruikersnaam is verplicht in te vullen !")]
         [ValidationAttributes.Bestaatnogniet(ErrorMessage="Een klant met deze gebruikersnaam komt al voor in de database. Kies een andere naam.")]
-        public string Gebruikersnaam { get; set; }  
-        //public string Gebruikersnaam { get { return this.Gebruikersnaam; } set { this.Gebruikersnaam = value; } } werkt niet
+        //public string Gebruikersnaam { get; set; }  
+        public string Gebruikersnaam { get { return this.gebruikersnaam; } set { this.gebruikersnaam = value; } }
         [Required(ErrorMessage= "Wachtwoord is erplicht in te vullen !")]
         [DataType(DataType.Password)]
         [Display(Name="Wachtwoord")]
